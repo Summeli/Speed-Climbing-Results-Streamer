@@ -1,9 +1,9 @@
 # Speed-Climbing-Results-Streamer
  Streams speed climbing results into result office / TV 
 
-# service 
+# Service 
 start with 
 yarn start
 
-# app
+# App
 build with react
