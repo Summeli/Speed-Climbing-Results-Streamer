@@ -2,8 +2,8 @@
  Streams speed climbing results into result office / TV 
 
 # Service 
-start with 
-yarn start
+Start with 
+Yarn start
 
 # App
-build with react
+Build with react
