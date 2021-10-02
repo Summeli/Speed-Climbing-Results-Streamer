@@ -1,24 +1,30 @@
 import express from 'express';
+import http from 'http';
+import WebSocket from 'ws';
 
-import routes from './routes';
+const app = express();
 
-class App {
-  public server;
+//initialize a simple http server
+const server = http.createServer(app);
 
-  constructor() {
-    this.server = express();
+//initialize the WebSocket server instance
+const wss = new WebSocket.Server({ server });
 
-    this.middlewares();
-    this.routes();
-  }
+wss.on('connection', (ws: WebSocket) => {
 
-  middlewares() {
-    this.server.use(express.json());
-  }
+    //connection is up, let's add a simple simple event
+    ws.on('message', (message: string) => {
 
-  routes() {
-    this.server.use(routes);
-  }
-}
+        //log the received message and send it back to the client
+        console.log('received: %s', message);
+        ws.send(`Hello, you sent -> ${message}`);
+    });
 
-export default new App().server;
+    //send immediatly a feedback to the incoming connection    
+    ws.send('Hi there, I am a WebSocket server');
+});
+
+//start our server
+server.listen(process.env.PORT || 5000, () => {
+    console.log(`Server started `);
+});
