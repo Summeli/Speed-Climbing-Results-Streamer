@@ -14,17 +14,21 @@ wss.on('connection', (ws: WebSocket) => {
 
     //connection is up, let's add a simple simple event
     ws.on('message', function incoming(data) {
-      console.log('received: %s', data);
+      const message = data.toString();
+      console.log('received: %s', message);
+      if(message === 'PING'){
+        ws.send('PONG');
+      }
       //send all data to every client connected to the server
       wss.clients.forEach(function each(client) {
         if (client !== ws && client.readyState === WebSocket.OPEN) {
-          client.send(data);
+          client.send(message);
         }
       });
     });
 
     //send immediatly a feedback to the incoming connection    
-    ws.send('Hi there, I am a WebSocket server');
+    ws.send('Hi there, I am a Finice websocket server');
 });
 
 //start our server
