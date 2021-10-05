@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 
-const loopinterval : number = 25;
+const timer_interval : number = 25;
 const ping_interval : number = 60000;
 
 type ClockContext = {
@@ -24,13 +24,18 @@ const ClockContext = React.createContext<Partial<ClockContext>>({});
 
 export const useClock = () => useContext(ClockContext);
 
-type UserContextProps = {
+type ContextProps = {
     children: React.ReactNode;
   };
 
-export const ClockProvider: React.FunctionComponent<ClockContext> = ({children}) => {
+export const ClockProvider: React.FunctionComponent<ContextProps> = ({children}) => {
     const [time, setTime] = useState(0);
-  
+    
+    React.useEffect(() => {
+        const timer=setTimeout(() => {
+            setTime(time + timer_interval);
+        }, timer_interval);
+      },[time]);
 
     return (
         <ClockContext.Provider
