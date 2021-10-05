@@ -6,4 +6,4 @@ Start with
 Yarn start
 
 # App
-Build with react
+Simple jquery app
