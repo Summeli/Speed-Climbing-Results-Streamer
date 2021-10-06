@@ -4,7 +4,7 @@
   "description": "time streaming service for speed climbing",
   "main": "index.js",
   "author": "Antti Pohjola",
-  "license": "MIT",
+  "license": "Apache License, Version 2.0",
   "private": false,
   "scripts": {
     "build": "tsc --project ./",

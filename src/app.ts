@@ -3,6 +3,7 @@ import http from 'http';
 import WebSocket from 'ws';
 
 const app = express();
+app.use(express.static('public'))
 
 //initialize a simple http server
 const server = http.createServer(app);
