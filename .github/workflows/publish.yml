@@ -1,0 +1,24 @@
+name: publish
+
+on: [push]
+
+jobs:
+  publish-finice-speed-stream-image:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Build the finice-speed-stream Docker image
+      run: |
+        docker build . --tag ghcr.io/summeli/finice-speed-stream:latest
+        docker run ghcr.io/summeli/finice-speed-stream:latest
+        docker push ghcr.io/summeli/finice-speed-stream:latest
+
