@@ -19,6 +19,5 @@ jobs:
     - name: Build the finice-speed-stream Docker image
       run: |
         docker build . --tag ghcr.io/summeli/finice-speed-stream:latest
-        docker run ghcr.io/summeli/finice-speed-stream:latest
         docker push ghcr.io/summeli/finice-speed-stream:latest
 
