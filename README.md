@@ -8,8 +8,8 @@ React was a bit too slow for the nicer "clock time" effect. It seems to be much 
 For Media streams we should use a native Qt Client, since it's much more realiable. 
 
 # Docker
-Building the image
-`docker build -t finicetimestreamer:v1 .`
+The docker image is build with github workflow.
+The Docker Container can be downloaded from [Github registry](https://github.com/Summeli/Speed-Climbing-Results-Streamer/pkgs/container/finice-speed-stream)
 
 
 # Local dev
