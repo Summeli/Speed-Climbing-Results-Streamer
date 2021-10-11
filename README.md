@@ -15,3 +15,6 @@ The Docker Container can be downloaded from [Github registry](https://github.com
 # Local dev
 start node with 
 `yarn start`
+
+# Related projects
+[algetiming-streamer](https://github.com/Summeli/algetiming-streamer) streams the data from alge devices into the websocket and into this service
