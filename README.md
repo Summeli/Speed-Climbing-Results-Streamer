@@ -11,6 +11,8 @@ For Media streams we should use a native Qt Client, since it's much more realiab
 The docker image is build with github workflow.
 The Docker Container can be downloaded from [Github registry](https://github.com/Summeli/Speed-Climbing-Results-Streamer/pkgs/container/finice-speed-stream)
 
+### Docker ENV variables
+WSURL is the URL for websockets to connect int.
 
 # Local dev
 start node with 

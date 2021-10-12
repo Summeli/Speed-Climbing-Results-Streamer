@@ -8,9 +8,6 @@ WORKDIR '/usr/src/app'
 # Install some depenendencies
 COPY . .
 
-#set the env
-COPY ./public/_assets/js/env_prod.js ./public/_assets/js/env.js
-
 RUN yarn install
 RUN yarn build
 

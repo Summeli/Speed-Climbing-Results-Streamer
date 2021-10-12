@@ -16,4 +16,4 @@
   *
 **********************************************************************/
 
-var webSocketUri =  "ws://localhost:5000/connection";
+var webSocketUri = $.ajax({type: "GET", url: "/wsurl", async: false}).responseText;
